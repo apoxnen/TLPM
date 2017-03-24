@@ -96,7 +96,5 @@ public class MainActivity extends ListActivity {
 //            adapter.add(m_Text[1]);
 //            adapter.add(m_Text[2]);
         }
-
-
     }
 
