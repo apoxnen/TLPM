@@ -10,15 +10,17 @@ import java.util.List;
 public class Item {
 
     String password;
+    String passpassword;
 
     List<Item> items = new ArrayList<Item>();
     List<String> itemNames = new ArrayList<String>();
 
 
 
-    public Item(String itemName, String password, String passpassword){
+    public Item(String itemName, String password, String newpasspassword){
         String name = itemName;
         setPassword(password);
+        passpassword = newpasspassword;
 
     }
 
