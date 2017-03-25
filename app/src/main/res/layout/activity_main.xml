@@ -8,21 +8,69 @@
     android:weightSum="1">
 
     <Button
-        android:id="@+id/addBtn"
+        android:id="@+id/addBtn1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="addItem"
+        android:onClick="addItem1"
         android:text="Add New Item" />
 
     <Button
-        android:id="@+id/showBtn"
+        android:id="@+id/showBtn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="showPass"
+        android:onClick="showPass1"
         android:text="Show password" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:textAllCaps="true"
+        android:text="PASSWORD" />
+
+
+    <Button
+        android:id="@+id/addBtn2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addItem2"
+        android:text="Add New Item" />
+
+    <Button
+        android:id="@+id/showBtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showPass2"
+        android:text="Show password" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        android:textAllCaps="true"
+        android:text="PASSWORD" />
+
+
+
+    <Button
+        android:id="@+id/addBtn3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addItem3"
+        android:text="Add New Item" />
+
+    <Button
+        android:id="@+id/showBtn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showPass3"
+        android:text="Show password" />
+
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.18"

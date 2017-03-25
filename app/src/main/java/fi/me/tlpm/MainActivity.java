@@ -27,7 +27,9 @@ import static android.R.id.list;
 public class MainActivity extends Activity {
 
         //LIST  FOR THE ITEMS:
-        public Item item1 = new Item("", "", "");
+     public Item item1 = new Item("", "", "");
+     public Item item2 = new Item("", "", "");
+     public Item item3 = new Item("", "", "");
 
 
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
@@ -44,7 +46,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void addItem(View v) {
+    public void addItem1(View v) {
         String name, password, passpassword;
 
         LinearLayout layout = new LinearLayout(v.getContext());
@@ -78,7 +80,7 @@ public class MainActivity extends Activity {
 
                 item1 = new Item(m_Text1, m_Text2, m_Text3);
 
-                ((TextView) findViewById(R.id.textView)).setText(m_Text1);
+                ((TextView) findViewById(R.id.textView1)).setText(m_Text1);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -89,7 +91,7 @@ public class MainActivity extends Activity {
         });
 
         builder.show();
-        
+
 
 /*        boolean valid = !itemNames.contains(name);
         if (valid) {
@@ -98,7 +100,7 @@ public class MainActivity extends Activity {
             }
   */      }
 
-    public void showPass(View v) {
+    public void showPass1(View v) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Password:");
@@ -117,10 +119,105 @@ public class MainActivity extends Activity {
 
                 if ( item1.passpassword.matches( m_TextPass ) ) {
 
-                    ((TextView) findViewById(R.id.textView)).setText(item1.password);
+                    ((TextView) findViewById(R.id.textView1)).setText(item1.password);
                 } else {
-                    ((TextView) findViewById(R.id.textView)).setText("WRONG PASSWORD ITEM DELETED");
-                    //item1 = new Item("","","");
+                    ((TextView) findViewById(R.id.textView1)).setText("WRONG PASSWORD ITEM DELETED");
+                    item1 = new Item("","","");
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+//ITEM2
+
+
+
+    public void addItem2(View v) {
+        String name, password, passpassword;
+
+        LinearLayout layout = new LinearLayout(v.getContext());
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Give name, password and passpassword");
+
+        // Set up the input
+        final EditText input1 = new EditText(this);
+        final EditText input2 = new EditText(this);
+        final EditText input3 = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input1.setInputType(InputType.TYPE_CLASS_TEXT);
+        input2.setInputType(InputType.TYPE_CLASS_TEXT);
+        input3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        layout.addView(input1);
+        layout.addView(input2);
+        layout.addView(input3);
+
+        builder.setView(layout);
+
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text1 = input1.getText().toString();
+                m_Text2 = input2.getText().toString();
+                m_Text3 = input3.getText().toString();
+
+                item2 = new Item(m_Text1, m_Text2, m_Text3);
+
+                ((TextView) findViewById(R.id.textView2)).setText(m_Text1);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+
+/*        boolean valid = !itemNames.contains(name);
+        if (valid) {
+            Item item1 = (new Item(name, password, passpassword));
+            itemNames.add(name);
+            }
+  */      }
+
+    public void showPass2(View v) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Password:");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_TextPass = input.getText().toString();
+
+                if ( item2.passpassword.matches( m_TextPass ) ) {
+
+                    ((TextView) findViewById(R.id.textView2)).setText(item2.password);
+                } else {
+                    ((TextView) findViewById(R.id.textView2)).setText("WRONG PASSWORD ITEM DELETED");
+                    item2 = new Item("","","");
                 }
             }
         });
@@ -137,7 +234,103 @@ public class MainActivity extends Activity {
 
 
 
+    //ITEM 3
+
+
+
+    public void addItem3(View v) {
+        String name, password, passpassword;
+
+        LinearLayout layout = new LinearLayout(v.getContext());
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Give name, password and passpassword");
+
+        // Set up the input
+        final EditText input1 = new EditText(this);
+        final EditText input2 = new EditText(this);
+        final EditText input3 = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input1.setInputType(InputType.TYPE_CLASS_TEXT);
+        input2.setInputType(InputType.TYPE_CLASS_TEXT);
+        input3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        layout.addView(input1);
+        layout.addView(input2);
+        layout.addView(input3);
+
+        builder.setView(layout);
+
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text1 = input1.getText().toString();
+                m_Text2 = input2.getText().toString();
+                m_Text3 = input3.getText().toString();
+
+                item3 = new Item(m_Text1, m_Text2, m_Text3);
+
+                ((TextView) findViewById(R.id.textView3)).setText(m_Text1);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+
+/*        boolean valid = !itemNames.contains(name);
+        if (valid) {
+            Item item1 = (new Item(name, password, passpassword));
+            itemNames.add(name);
+            }
+  */      }
+
+    public void showPass3(View v) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Password:");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_TextPass = input.getText().toString();
+
+                if ( item1.passpassword.matches( m_TextPass ) ) {
+
+                    ((TextView) findViewById(R.id.textView3)).setText(item1.password);
+                } else {
+                    ((TextView) findViewById(R.id.textView3)).setText("WRONG PASSWORD ITEM DELETED");
+                    item3 = new Item("","","");
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
     }
+
+
+}
 
 
 
