@@ -38,7 +38,7 @@ public class Item {
     }
 
     public boolean passwordIsLegit(String password){
-        boolean validLength = password.length() >= 5;
+        boolean validLength = password.length() >= 8;
         int upperCounter = 0;
         int lowerCounter = 0;
         int specialCounter = 0;

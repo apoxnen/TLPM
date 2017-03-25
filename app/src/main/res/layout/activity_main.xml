@@ -12,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="addItem1"
-        android:text="Add New Item" />
+        android:text="Add new" />
 
     <Button
         android:id="@+id/showBtn1"
@@ -27,6 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.18"
         android:textAllCaps="true"
+        android:gravity="center"
+        android:textSize="16dp"
         android:text="PASSWORD" />
 
 
@@ -35,7 +37,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="addItem2"
-        android:text="Add New Item" />
+        android:text="Add new" />
 
     <Button
         android:id="@+id/showBtn2"
@@ -48,7 +50,9 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.18"
+        android:textSize="16dp"
+        android:layout_weight="0.16"
+        android:gravity="center"
         android:textAllCaps="true"
         android:text="PASSWORD" />
 
@@ -59,7 +63,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="addItem3"
-        android:text="Add New Item" />
+        android:text="Add new" />
 
     <Button
         android:id="@+id/showBtn3"
@@ -74,8 +78,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.18"
+        android:textSize="16dp"
+        android:gravity="center"
         android:textAllCaps="true"
         android:text="PASSWORD" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Passpassword requirements: minimum length: 10 chars. Max 2 characters of the same type in a row (uppercase, lowercase or special) Minimum of 1/4 of the passwords length must be of each character type."
+        android:layout_weight="0.39" />
 
 
 </LinearLayout>

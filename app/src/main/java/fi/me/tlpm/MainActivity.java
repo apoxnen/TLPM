@@ -46,6 +46,56 @@ public class MainActivity extends Activity {
 
     }
 
+
+
+    public boolean passwordIsLegit(String password){
+        boolean validLength = password.length() >= 8;
+        int upperCounter = 0;
+        int lowerCounter = 0;
+        int specialCounter = 0;
+        int upperCounter_whole = 0;
+        int lowerCounter_whole = 0;
+        int specialCounter_whole = 0;
+        boolean validChars = false;
+        for(int i = 0; i < password.length(); i++){
+            if(Character.isUpperCase(password.charAt(i))){
+                upperCounter ++;
+                upperCounter_whole ++;
+                lowerCounter = 0;
+                specialCounter = 0;
+            }else if(Character.isLowerCase(password.charAt(i))){
+                lowerCounter ++;
+                lowerCounter_whole ++;
+                upperCounter = 0;
+                specialCounter = 0;
+            }else{
+                specialCounter ++;
+                specialCounter_whole ++;
+                upperCounter = 0;
+                lowerCounter = 0;
+            }
+            validChars = (upperCounter < 3) &&
+                    (lowerCounter < 3) &&
+                    (specialCounter < 3) &&
+                    (upperCounter_whole >= password.length()/4) &&
+                    (lowerCounter_whole >= password.length()/4) &&
+                    (specialCounter_whole >= password.length()/4);
+        }
+        return validChars && validLength;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void addItem1(View v) {
         String name, password, passpassword;
 
@@ -60,6 +110,9 @@ public class MainActivity extends Activity {
         final EditText input2 = new EditText(this);
         final EditText input3 = new EditText(this);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input1.setHint("Name");
+        input2.setHint("Password");
+        input3.setHint("Password for the password");
         input1.setInputType(InputType.TYPE_CLASS_TEXT);
         input2.setInputType(InputType.TYPE_CLASS_TEXT);
         input3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -78,9 +131,15 @@ public class MainActivity extends Activity {
                 m_Text2 = input2.getText().toString();
                 m_Text3 = input3.getText().toString();
 
-                item1 = new Item(m_Text1, m_Text2, m_Text3);
+                if (m_Text2.matches(m_Text3)) {
+                    ((TextView) findViewById(R.id.textView1)).setText("Password and passpassword can't be the same!");
+                } else if (passwordIsLegit(m_Text3)) {
+                    item1 = new Item(m_Text1, m_Text2, m_Text3);
+                    ((TextView) findViewById(R.id.textView1)).setText(m_Text1);
+                } else {
+                    ((TextView) findViewById(R.id.textView1)).setText("Password for password doesn't meet all it's requirements");
+                }
 
-                ((TextView) findViewById(R.id.textView1)).setText(m_Text1);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -155,6 +214,9 @@ public class MainActivity extends Activity {
         final EditText input2 = new EditText(this);
         final EditText input3 = new EditText(this);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input1.setHint("Name");
+        input2.setHint("Password");
+        input3.setHint("Password for the password");
         input1.setInputType(InputType.TYPE_CLASS_TEXT);
         input2.setInputType(InputType.TYPE_CLASS_TEXT);
         input3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -173,9 +235,14 @@ public class MainActivity extends Activity {
                 m_Text2 = input2.getText().toString();
                 m_Text3 = input3.getText().toString();
 
-                item2 = new Item(m_Text1, m_Text2, m_Text3);
-
-                ((TextView) findViewById(R.id.textView2)).setText(m_Text1);
+                if (m_Text2.matches(m_Text3)) {
+                    ((TextView) findViewById(R.id.textView2)).setText("Password and passpassword can't be the same!");
+                } else if (passwordIsLegit(m_Text3)) {
+                    item2 = new Item(m_Text1, m_Text2, m_Text3);
+                    ((TextView) findViewById(R.id.textView2)).setText(m_Text1);
+                } else {
+                    ((TextView) findViewById(R.id.textView2)).setText("Password for password doesn't meet all it's requirements");
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -252,6 +319,9 @@ public class MainActivity extends Activity {
         final EditText input2 = new EditText(this);
         final EditText input3 = new EditText(this);
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input1.setHint("Name");
+        input2.setHint("Password");
+        input3.setHint("Password for the password");
         input1.setInputType(InputType.TYPE_CLASS_TEXT);
         input2.setInputType(InputType.TYPE_CLASS_TEXT);
         input3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -270,9 +340,14 @@ public class MainActivity extends Activity {
                 m_Text2 = input2.getText().toString();
                 m_Text3 = input3.getText().toString();
 
-                item3 = new Item(m_Text1, m_Text2, m_Text3);
-
-                ((TextView) findViewById(R.id.textView3)).setText(m_Text1);
+                if (m_Text2.matches(m_Text3)) {
+                    ((TextView) findViewById(R.id.textView3)).setText("Password and passpassword can't be the same!");
+                } else if (passwordIsLegit(m_Text3)) {
+                    item3 = new Item(m_Text1, m_Text2, m_Text3);
+                    ((TextView) findViewById(R.id.textView3)).setText(m_Text1);
+                } else {
+                    ((TextView) findViewById(R.id.textView3)).setText("Password for password doesn't meet all it's requirements");
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
